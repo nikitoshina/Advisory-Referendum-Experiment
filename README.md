@@ -69,7 +69,10 @@ impact on future university policy. Questionnaire 2 was similar to the
 first, except it pointed that the results might have impact on the
 future policy and thus increase tuition.
 
-![Questionnaires](README_files/figure-gfm/Questionnaires.png)<!-- -->
+<img src="README_files/figure-gfm/Questionnaires.png" alt="Questionnaires" width="80%" />
+<p class="caption">
+Questionnaires
+</p>
 
 ### 1.3.2 Subjects
 
@@ -199,7 +202,7 @@ students administered referendum survey took longer to respond. The
 resulting p-value was 0.063, which allows us to reject H0 that
 referendum survey had no impact on the response time at 10% level.
 
-<img src="README_files/figure-markdown_strict/timeDifference-1.png" alt="t.test on whether advisory referendum had impact on time to response" width="80%" />
+<img src="README_files/figure-markdown_strict/timeDistPlot-1.png" alt="t.test on whether advisory referendum had impact on time to response" width="80%" />
 <p class="caption">
 t.test on whether advisory referendum had impact on time to response
 </p>
