@@ -1,16 +1,19 @@
--   [Advisory referendum](#advisory-referendum)
-    -   [Introduction](#introduction)
-    -   [Overview of Literature](#overview-of-literature)
-    -   [Experiment Structure](#experiment-structure)
-        -   [Surveys](#surveys)
-        -   [Subjects](#subjects)
-        -   [Opinion and Support](#opinion-and-support)
-        -   [Time Difference](#time-difference)
-        -   [Possible Concerns](#possible-concerns)
+-   [1 Advisory referendum](#advisory-referendum)
+    -   [1.1 Introduction](#introduction)
+    -   [1.2 Overview of Literature](#overview-of-literature)
+    -   [1.3 Experiment Structure](#experiment-structure)
+        -   [1.3.1 Surveys](#surveys)
+        -   [1.3.2 Subjects](#subjects)
+    -   [1.4 Analysis](#analysis)
+        -   [1.4.1 Advisory Referendum](#advisory-referendum-1)
+        -   [1.4.2 Opinion and Support](#opinion-and-support)
+        -   [1.4.3 Time Difference](#time-difference)
+        -   [1.4.4 Possible Concerns](#possible-concerns)
+    -   [1.5 Conclusion](#conclusion)
 
-# Advisory referendum
+# 1 Advisory referendum
 
-## Introduction
+## 1.1 Introduction
 
 In this paper we will look at whether structuring survey as advisory
 referendum or binding referendum with monetary consequences changes the
@@ -23,7 +26,7 @@ Additionally, the opinion expressed is statistically predictive of the
 willingness to contribute. Lastly, time spent on binding referendum is
 statistically significantly larger.
 
-## Overview of Literature
+## 1.2 Overview of Literature
 
 In “Field Experiments”, Glenn W. Harrison and John A. List post an
 important question whether “It remains an open question if these
@@ -40,7 +43,7 @@ We aimed to contribute to the small body of research looking to answer
 the question whether advisory referendum produces the same results as
 binding referendum, but at a lower cost.
 
-## Experiment Structure
+## 1.3 Experiment Structure
 
 Students will receive a questionnaire, asking whether they believe
 service workers are underpaid and whether they would approve an increase
@@ -55,7 +58,7 @@ a decision that would most definitely have an impact on future policy.
 The difference between the two tests would then reflect the change of
 commitment associated with opinion and actual decision-making.
 
-### Surveys
+### 1.3.1 Surveys
 
 The experiment was distributed through 2 GoogleForm surveys.
 Questionnaire 1 asked for an opinion on current pay situation of service
@@ -68,7 +71,7 @@ future policy and thus increase tuition.
 
 ![Questionnaires](README_files/figure-gfm/Questionnaires.png)<!-- -->
 
-### Subjects
+### 1.3.2 Subjects
 
 The subjects of the experiment were 64 students from undergraduate
 Economics classes at the University of San Francisco. The surveys were
@@ -155,18 +158,21 @@ the white board. A sample of the data is presented below.
 </tbody>
 </table>
 
-</br> \## Analysis \### Advisory Referendum Fischer Exact Test was used
-to test whether the willingness to support the initiative was affected
-by advisory referenda. The resulting p-value was 0.584, which is
-significantly above 10%, thus we cannot reject the H0 that there is no
-difference between two surveys.
+## 1.4 Analysis
+
+### 1.4.1 Advisory Referendum
+
+Fischer Exact Test was used to test whether the willingness to support
+the initiative was affected by advisory referenda. The resulting p-value
+was 0.584, which is significantly above 10%, thus we cannot reject the
+H0 that there is no difference between two surveys.
 
 <img src="README_files/figure-markdown_strict/questEffectOnAgreement-1.png" alt="Fischer Exact Test on effect of advisory referendum" width="80%" />
 <p class="caption">
 Fischer Exact Test on effect of advisory referendum
 </p>
 
-### Opinion and Support
+### 1.4.2 Opinion and Support
 
 Fischer Exact Test was used to test whether the opinion on service
 workers’ minimal wage issue affected the decision to contribute. The
@@ -178,7 +184,7 @@ did not affect the decision to support the initiative.
 Fischer Exact Test on translation of opinion to support
 </p>
 
-### Time Difference
+### 1.4.3 Time Difference
 
 To record time the respondants were asked to input current time into the
 survey (because of limitations of Google Forms). Total time spent on the
@@ -210,7 +216,7 @@ t.test on whether advisory referendum had impact on time to response
     ## mean of x 
     ##  9.412656
 
-### Possible Concerns
+### 1.4.4 Possible Concerns
 
 We have to address weak points of our experiment. Verbal post survey
 evaluation indicated that subjects could not notice the difference
@@ -224,10 +230,12 @@ who believed the workers were paid fairly elected to support the
 increase in tuition. Lastly, the sample size is not sufficiently large
 to confirm small differences in behavior.
 
-</br> \## Conclusion To sum up, there is no statistically significant
-difference between advisory and binding referendum. Combined with the
-studies discussed at the very beginning our finding proposes a wider
-introduction of opinion surveys to measure societal opinion and
-commitment. Without apparent difference in results, advisory referendum
-offers higher participation rate and involvement (Ralph M. Goldman) at a
-lower cost and shorter time to develop and deploy.
+## 1.5 Conclusion
+
+To sum up, there is no statistically significant difference between
+advisory and binding referendum. Combined with the studies discussed at
+the very beginning our finding proposes a wider introduction of opinion
+surveys to measure societal opinion and commitment. Without apparent
+difference in results, advisory referendum offers higher participation
+rate and involvement (Ralph M. Goldman) at a lower cost and shorter time
+to develop and deploy.
