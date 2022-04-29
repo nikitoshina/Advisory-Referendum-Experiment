@@ -1,0 +1,133 @@
+---
+title: "Advisory referendum"
+output: 
+  md_document:
+    toc: true
+    number_sections: true
+---
+
+```{r setup, include = F }
+knitr::opts_chunk$set(echo = FALSE, warning = F,message = F, fig.pos = 'h')
+```
+```{r installPackages, include = F}
+library(tidyverse)
+library(googlesheets4)
+library(lubridate)
+library(ggstatsplot)
+library(knitr)
+
+
+```
+
+```{r downloadData, include=F}
+control <- read_sheet("https://docs.google.com/spreadsheets/d/1ZdpP-x9lsQrUy0HOta5-E5PmS1TFgfW-4XUNOwEJPwE/edit?resourcekey#gid=2007300920")
+
+treatment <- read_sheet("https://docs.google.com/spreadsheets/d/1rNJJGVfY0al0jSW_A0fJiwnLwNcOgrMkC9_dJ1yHwZY/edit?resourcekey#gid=1763353684")
+```
+```{r mergeData, include= F}
+control$quest <- 1
+treatment$quest <- 2
+df <- rbind(control,treatment)
+colnames(df) <- c("endTime","startTime","underpaid","support","quest")
+
+df$date <- df$endTime %>% format(., format = "%Y:%m:%d") %>% ymd()
+df$startTime <- df$startTime %>% format(., format = "%H:%M:%S") %>% hms() 
+df$endTime <- df$endTime %>% format(., format = "%H:%M:%S") %>% hms() 
+df <- df %>% filter(date != "2022-04-05")
+
+df <- df %>% mutate(timeTaken = period_to_seconds(endTime) - period_to_seconds(startTime))
+
+df$underpaid <- ifelse(df$underpaid == "Yes, I think service workers should be paid more", "Yes","No")
+df$support <- ifelse(df$support == "Yes","Yes","No")
+```
+
+# Advisory referendum
+
+## Introduction
+In this paper, we attempt to answer the question if an advisory referendum or binding referendum with monetary consequences would influence people’s responses through structuring a survey. An experiment was conducted which consisted of 2 surveys (i) one stating that “answers will not have impact on future policy” and (ii) “answers will have impact future policy”. The surveys were administered to 64 students at the University of San Francisco. The analysis concluded that there was no statistical significant difference between the two surveys. Additionally, the opinion expressed was statistically predictive of the willingness of contribution. It is worth noting that the time spent on binding referendums was statistically significantly larger.
+
+## Overview of Literature
+In “Field Experiments”, Glenn W. Harrison and John A. List posed an important question, asking if “It remains an open question that these “advisory referenda” actually motivate subjects to respond truthfully.” Unfortunately, not much academic work has been done to truly answer this question empirically. In “The Advisory Referendum in America”, Ralph M. Goldman concludes that the introduction of the Advisory Referendum would tend to increase public participation in important issues and also improve communication between legislators and the electorate. In the paper “Understanding the Uses and Limitations of the Advisory Referendum”, John B. Murphey, Rosenthal, Coblentz & Janega found that respondents did not have a clear preference for binding referendums over advisory ones. Through the experiment, we contributed to this small body of research, attempting to answer the question whether advisory referendums produce the same results as binding referendums.
+
+## Experiment Structure 
+Students received a questionnaire, asking whether they believe service workers are underpaid and whether they would approve an increase in wages for university service workers funded by an increase in tuition. There would be no expected explicit benefit to the subjects and their decision would be anonymous. These constraints were to limit the possible effects of ‘warm glow’ and the perception of future benefits.
+
+The control group would be asked for their own general non-binding thoughts and opinions regarding this issue. The treatment group would be asked to make a decision that would ultimately have an impact on future policy. The difference between the two tests would then reflect the change of commitment associated with opinion and actual decision-making.
+
+### Surveys
+The experiment was distributed through two separate GoogleForm surveys. In questionnaire 1, we asked for the subject’s opinion on the current pay situation of service workers at the University of San Francisco and whether they were willing to support an initiative to increase minimum wage by contributing $200 through an increase in tuition. It was stressed and bolded that the results will have no impact on the future of USF’s university policy. Questionnaire 2 was similar to the first, except that it stressed that the results might have an impact on the future policy and possibly increasing the tuition.
+```{r fig.align="center",  out.width = "80%", fig.cap="Questionnaires"}
+knitr::include_graphics("README_files/figure-gfm/Questionnaires.png")
+```
+
+### Subjects
+The subjects of the experiment were 64 students from the undergraduate Economics programme at the University of San Francisco. The surveys were distributed at the end of classes; the class was split into two equal groups and the subjects completed their surveys by scanning the QR codes from the board. A sample of the data is presented below.
+
+```{r dataTable, fig.align='center', fig.cap= "Sample Data from the Dataset"}
+df %>% arrange(date) %>% filter(row_number() %% 10 == 1) %>% knitr::kable(format = "simple")
+```
+
+## Analysis
+### Advisory Referendum
+A Fisher Exact Test was used to test whether the willingness to support the initiative was truly affected by advisory referendums. The resulting p-value was 0.584, which is significantly above 10%. Thus we cannot reject the H0 that there is a lack of differences between the two surveys.
+
+```{r questEffectOnAgreement, out.width= "80%", fig.align="center", fig.cap="Fischer Exact Test on effect of advisory referendum"}
+dat <- df %>% select(quest, support) %>% table()
+
+test <- fisher.test(dat)
+ggbarstats(
+  df, support, quest,
+  results.subtitle = FALSE,
+  subtitle = paste0(
+    "Fisher's exact test", ", p-value = ",
+    ifelse(test$p.value < 0.001, "< 0.001", round(test$p.value, 3))
+  )
+)
+```
+### Opinion and Support
+A Fisher Exact Test was used to test whether the opinion on the current state of the service workers’ minimum wage issue truly affects the decision to contribute. The resulting p-value was 0.054, which allows us to reject H0 that the subjects’ opinions did not affect the decision to support the initiative.
+
+
+```{r beliefEffect, out.width= "80%", fig.align='center', fig.cap="Fischer Exact Test on translation of opinion to support"}
+dat <- df %>% select(underpaid, support) %>% table()
+#chisq.test(dat)$expected
+
+test <- fisher.test(dat)
+library(ggstatsplot)
+ggbarstats(
+  df, support, underpaid,
+  results.subtitle = FALSE,
+  subtitle = paste0(
+    "Fisher's exact test", ", p-value = ",
+    ifelse(test$p.value < 0.001, "< 0.001", round(test$p.value, 3))
+  )
+)
+```
+### Time Difference
+To account for the time taken for the completion of the surveys, respondents were asked to input their current time into the survey itself (due to the limitations on Google Forms). The total time spent on the survey was calculated by subtracting the time input from the time of completion. As the participants had to enter their time while allowing for a minute accuracy, there is an error embedded into the measurement. Since everyone in the same group started at the same time, the mean time for control is t and mean time for treatment is t + Δt (which is the extra time). We can calculate for Δt by subtracting the mean time of control from the treatment. To test whether Δt is bigger than 0, we utilized a one-tail t-test. 
+
+In other words, we tested whether the students assigned with the administered referendum surveys took longer to respond as compared to the other group. The resulting p-value was 0.063, which then allowed us to reject the H0 that the referendum survey had no impact on the response time at a 10% level.
+
+```{r timeDistPlot, out.width= "80%", fig.align='center', fig.cap="t.test on whether advisory referendum had impact on time to response"}
+testData <- df %>% group_by(quest) %>% summarise(avgTime = mean(timeTaken), n = n(),sd = sd(timeTaken))
+
+# q1time <- df %>% filter(quest ==1) %>% select(quest, timeTaken) %>% pivot_wider(names_from = quest, values_from = timeTaken) %>% unlist()
+# q2time <- df %>% filter(quest ==2) %>% select(quest, timeTaken) %>% pivot_wider(names_from = quest, values_from = timeTaken) %>% unlist()
+
+timeData <- df %>% group_by(date) %>% mutate(meanQ1 =  mean(timeTaken[quest==1]), timeDiff = timeTaken - meanQ1 ) %>% ungroup() %>% filter( quest == 2) %>% select(timeDiff) %>% mutate(Q1AsBase=0)
+
+timeData %>% arrange(timeDiff)  %>% ggplot(aes(x=timeDiff)) + geom_histogram()
+```
+```{r tTest,out.width= "80%", fig.align='center', fig.cap="t.test on whether advisory referendum had impact on time to response"}
+t.test(timeData$timeDiff, mu = 0,alternative = "greater")
+```
+
+### Possible Concerns
+We have to address the weak points of the experiment. Through a verbal post survey evaluation, it was identified that subjects could not distinguish between the two questionnaires. It is possible that they did not account for the binding and non-binding nature of the questions and perceived them to be equal. Given a real world scenario, the nature of the vote would be strengthened through communication channels prior to the distribution, allowing for clearer instructions. Another concern is that some subjects did not read the instructions attentively and randomly filled in the answers because 4 out of 11 people who believed that workers were paid fairly, elected to support the increase in tuition. To sum up, it is clear that the sample size is not sufficiently large enough to absolutely distinguish the small differences in behavior from both groups. 
+
+
+## Conclusion
+To conclude, there is no statistically significant difference between advisory and binding referendums. Combined with the studies discussed at the beginning of the paper, our results propose a wider introduction of opinion surveys to measure societal opinion and commitment. Without apparent difference in results, advisory referendum offers higher participation rate and involvement (Ralph M. Goldman) at a lower cost and shorter time to develop and deploy. 
+
+
+

@@ -15,59 +15,61 @@
 
 ## 1.1 Introduction
 
-In this paper we will look at whether structuring survey as advisory
-referendum or binding referendum with monetary consequences changes the
-responses. An experiment consisted of 2 surveys one stating that
-“answers will not have impact on future policy” and “answers will have
+In this paper, we attempt to answer the question if an advisory
+referendum or binding referendum with monetary consequences would
+influence people’s responses through structuring a survey. An experiment
+was conducted which consisted of 2 surveys (i) one stating that “answers
+will not have impact on future policy” and (ii) “answers will have
 impact future policy”. The surveys were administered to 64 students at
-the University of San Francisco. The analysis concluded that there is
-not statistically significant difference between the two surveys.
-Additionally, the opinion expressed is statistically predictive of the
-willingness to contribute. Lastly, time spent on binding referendum is
-statistically significantly larger.
+the University of San Francisco. The analysis concluded that there was
+no statistical significant difference between the two surveys.
+Additionally, the opinion expressed was statistically predictive of the
+willingness of contribution. It is worth noting that the time spent on
+binding referendums was statistically significantly larger.
 
 ## 1.2 Overview of Literature
 
-In “Field Experiments”, Glenn W. Harrison and John A. List post an
-important question whether “It remains an open question if these
+In “Field Experiments”, Glenn W. Harrison and John A. List posed an
+important question, asking if “It remains an open question that these
 “advisory referenda” actually motivate subjects to respond truthfully.”
-Unfortunately, not much work has been done to answer this question
-empirically. In “The Advisory Referendum in America”, Ralph M. Goldman
-concludes that introduction of Advisory Referendum would tend to
-increase public participation in important issues and to improve
-communication between legislators and the electorate. And in
-“Understanding the Uses and Limitations of the Advisory Referendum”,
-John B. Murphey, Rosenthal, Coblentz & Janega found that respondents did
-not have a clear preference for binding referendums over advisory ones.
-We aimed to contribute to the small body of research looking to answer
-the question whether advisory referendum produces the same results as
-binding referendum, but at a lower cost.
+Unfortunately, not much academic work has been done to truly answer this
+question empirically. In “The Advisory Referendum in America”, Ralph M.
+Goldman concludes that the introduction of the Advisory Referendum would
+tend to increase public participation in important issues and also
+improve communication between legislators and the electorate. In the
+paper “Understanding the Uses and Limitations of the Advisory
+Referendum”, John B. Murphey, Rosenthal, Coblentz & Janega found that
+respondents did not have a clear preference for binding referendums over
+advisory ones. Through the experiment, we contributed to this small body
+of research, attempting to answer the question whether advisory
+referendums produce the same results as binding referendums.
 
 ## 1.3 Experiment Structure
 
-Students will receive a questionnaire, asking whether they believe
-service workers are underpaid and whether they would approve an increase
-of wages for university service workers funded by increased tuition.
-There is will be no expected benefit to subjects and their decision
-would be anonymous. This limitations are to limit possible effects of
-warm glow or perception of future benefits.
+Students received a questionnaire, asking whether they believe service
+workers are underpaid and whether they would approve an increase in
+wages for university service workers funded by an increase in tuition.
+There would be no expected explicit benefit to the subjects and their
+decision would be anonymous. These constraints were to limit the
+possible effects of ‘warm glow’ and the perception of future benefits.
 
-The control group would be asked for general nonbinding thoughts and
-opinions regarding the issue. The treatment group would be asked to make
-a decision that would most definitely have an impact on future policy.
-The difference between the two tests would then reflect the change of
-commitment associated with opinion and actual decision-making.
+The control group would be asked for their own general non-binding
+thoughts and opinions regarding this issue. The treatment group would be
+asked to make a decision that would ultimately have an impact on future
+policy. The difference between the two tests would then reflect the
+change of commitment associated with opinion and actual decision-making.
 
 ### 1.3.1 Surveys
 
-The experiment was distributed through 2 GoogleForm surveys.
-Questionnaire 1 asked for an opinion on current pay situation of service
-workers at the University of San Francisco and whether they were willing
-to support an initiative to increase minimal wage by contributing $200
-through increased tuition. It was stressed that the results will have no
-impact on future university policy. Questionnaire 2 was similar to the
-first, except it pointed that the results might have impact on the
-future policy and thus increase tuition.
+The experiment was distributed through two separate GoogleForm surveys.
+In questionnaire 1, we asked for the subject’s opinion on the current
+pay situation of service workers at the University of San Francisco and
+whether they were willing to support an initiative to increase minimum
+wage by contributing $200 through an increase in tuition. It was
+stressed and bolded that the results will have no impact on the future
+of USF’s university policy. Questionnaire 2 was similar to the first,
+except that it stressed that the results might have an impact on the
+future policy and possibly increasing the tuition.
 
 <img src="README_files/figure-gfm/Questionnaires.png" alt="Questionnaires" width="80%" />
 <p class="caption">
@@ -76,11 +78,11 @@ Questionnaires
 
 ### 1.3.2 Subjects
 
-The subjects of the experiment were 64 students from undergraduate
-Economics classes at the University of San Francisco. The surveys were
-distributed at the end of classes, the class was split into two equal
-groups and subjects completed their surveys by scanning QR codes from
-the white board. A sample of the data is presented below.
+The subjects of the experiment were 64 students from the undergraduate
+Economics programme at the University of San Francisco. The surveys were
+distributed at the end of classes; the class was split into two equal
+groups and the subjects completed their surveys by scanning the QR codes
+from the board. A sample of the data is presented below.
 
 <table>
 <thead>
@@ -165,10 +167,11 @@ the white board. A sample of the data is presented below.
 
 ### 1.4.1 Advisory Referendum
 
-Fischer Exact Test was used to test whether the willingness to support
-the initiative was affected by advisory referenda. The resulting p-value
-was 0.584, which is significantly above 10%, thus we cannot reject the
-H0 that there is no difference between two surveys.
+A Fisher Exact Test was used to test whether the willingness to support
+the initiative was truly affected by advisory referendums. The resulting
+p-value was 0.584, which is significantly above 10%. Thus we cannot
+reject the H0 that there is a lack of differences between the two
+surveys.
 
 <img src="README_files/figure-markdown_strict/questEffectOnAgreement-1.png" alt="Fischer Exact Test on effect of advisory referendum" width="80%" />
 <p class="caption">
@@ -177,10 +180,11 @@ Fischer Exact Test on effect of advisory referendum
 
 ### 1.4.2 Opinion and Support
 
-Fischer Exact Test was used to test whether the opinion on service
-workers’ minimal wage issue affected the decision to contribute. The
-resulting p-value was 0.054, which allows us to reject H0 that opinion
-did not affect the decision to support the initiative.
+A Fisher Exact Test was used to test whether the opinion on the current
+state of the service workers’ minimum wage issue truly affects the
+decision to contribute. The resulting p-value was 0.054, which allows us
+to reject H0 that the subjects’ opinions did not affect the decision to
+support the initiative.
 
 <img src="README_files/figure-markdown_strict/beliefEffect-1.png" alt="Fischer Exact Test on translation of opinion to support" width="80%" />
 <p class="caption">
@@ -189,18 +193,23 @@ Fischer Exact Test on translation of opinion to support
 
 ### 1.4.3 Time Difference
 
-To record time the respondants were asked to input current time into the
-survey (because of limitations of Google Forms). Total time spent on the
-survey was calculated by subtracting time inputted from time of
-submission. Because the participants had to enter the time with minute
-accuracy, there is error inbeded into the measurement. Since everyone in
-the same group started at the same time, mean time for control is t and
-mean time for treatment is t + *Δ*t (extra time). We can find *Δ*t by
-subtracting time mean of control from treatment. To test whether *Δ*t is
-bigger than 0 a one-tail t.test. I other words, we tested whether
-students administered referendum survey took longer to respond. The
-resulting p-value was 0.063, which allows us to reject H0 that
-referendum survey had no impact on the response time at 10% level.
+To account for the time taken for the completion of the surveys,
+respondents were asked to input their current time into the survey
+itself (due to the limitations on Google Forms). The total time spent on
+the survey was calculated by subtracting the time input from the time of
+completion. As the participants had to enter their time while allowing
+for a minute accuracy, there is an error embedded into the measurement.
+Since everyone in the same group started at the same time, the mean time
+for control is t and mean time for treatment is t + Δt (which is the
+extra time). We can calculate for Δt by subtracting the mean time of
+control from the treatment. To test whether Δt is bigger than 0, we
+utilized a one-tail t-test.
+
+In other words, we tested whether the students assigned with the
+administered referendum surveys took longer to respond as compared to
+the other group. The resulting p-value was 0.063, which then allowed us
+to reject the H0 that the referendum survey had no impact on the
+response time at a 10% level.
 
 <img src="README_files/figure-markdown_strict/timeDistPlot-1.png" alt="t.test on whether advisory referendum had impact on time to response" width="80%" />
 <p class="caption">
@@ -221,24 +230,26 @@ t.test on whether advisory referendum had impact on time to response
 
 ### 1.4.4 Possible Concerns
 
-We have to address weak points of our experiment. Verbal post survey
-evaluation indicated that subjects could not notice the difference
-between the two questionnaires. It is possible that they did not account
-for the binding and non-binding nature of questions and perceived them
-as equal. In the real world the nature of the vote would be strengthened
-through communication channels prior to the distribution making the
-repercussions clear. Another concern is that the subjects did not read
-the instructions and randomly filled in the answers as 4 of 11 people,
-who believed the workers were paid fairly elected to support the
-increase in tuition. Lastly, the sample size is not sufficiently large
-to confirm small differences in behavior.
+We have to address the weak points of the experiment. Through a verbal
+post survey evaluation, it was identified that subjects could not
+distinguish between the two questionnaires. It is possible that they did
+not account for the binding and non-binding nature of the questions and
+perceived them to be equal. Given a real world scenario, the nature of
+the vote would be strengthened through communication channels prior to
+the distribution, allowing for clearer instructions. Another concern is
+that some subjects did not read the instructions attentively and
+randomly filled in the answers because 4 out of 11 people who believed
+that workers were paid fairly, elected to support the increase in
+tuition. To sum up, it is clear that the sample size is not sufficiently
+large enough to absolutely distinguish the small differences in behavior
+from both groups.
 
 ## 1.5 Conclusion
 
-To sum up, there is no statistically significant difference between
-advisory and binding referendum. Combined with the studies discussed at
-the very beginning our finding proposes a wider introduction of opinion
-surveys to measure societal opinion and commitment. Without apparent
-difference in results, advisory referendum offers higher participation
-rate and involvement (Ralph M. Goldman) at a lower cost and shorter time
-to develop and deploy.
+To conclude, there is no statistically significant difference between
+advisory and binding referendums. Combined with the studies discussed at
+the beginning of the paper, our results propose a wider introduction of
+opinion surveys to measure societal opinion and commitment. Without
+apparent difference in results, advisory referendum offers higher
+participation rate and involvement (Ralph M. Goldman) at a lower cost
+and shorter time to develop and deploy.
